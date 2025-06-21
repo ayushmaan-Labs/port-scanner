@@ -18,12 +18,13 @@ def scan_port(port):
         s.connect((target_host, port))
         try:
             banner = s.recv(1024).decode("utf-8").strip()
-        except:
+        except socket.error:
             banner = "No banner retrieved"
         print(f"[+] Port {port} is open | Banner: {banner}")
-        s.close()
-    except:
+    except (socket.error, ConnectionRefusedError):
         pass
+    finally:
+        s.close()
 
 def worker():
     while True:
@@ -44,3 +45,4 @@ if __name__ == "__main__":
 
     task_queue.join()
     print("Scan complete!")
+
