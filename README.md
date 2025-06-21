@@ -21,7 +21,17 @@ This script uses only built-in Python libraries (`socket`, `threading`, `queue`)
 Edit the `target_host` variable in `port_scanner.py`:
 ```python
 target_host = 'scanme.nmap.org'
+```
 
 ### 3️⃣ Run the Scanner
 ```bash
 Python3 port-scanner.py
+```
+
+### 📑 OUTPUT example
+
+```kotlin
+[+] Port 22 is open | Banner: SSH-2.0-OpenSSH_7.4
+[+] Port 80 is open | Banner: HTTP/1.1 200 OK
+Scan complete!
+```
